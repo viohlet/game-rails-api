@@ -1,8 +1,10 @@
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
-      t.integer :user_id
-      t.integer :students
+      t.references :user, index: true, foreign_key: true
+      t.integer :score
+      t.integer :time
+      t.boolean :iscomplete
 
       t.timestamps null: false
     end
